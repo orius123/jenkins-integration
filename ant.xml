@@ -16,24 +16,23 @@
 
         <unzip src="${build}/slang.zip" dest="${build}"/>
 
-        <exec dir="${build}/slang/appassembler/bin" executable="/bin/bash" osfamily="unix">
-            <arg value="slang"/>
+        <exec executable="/bin/bash" osfamily="unix">
+            <arg value="${build}/slang/appassembler/bin/slang"/>
             <arg value="run"/>
             <arg value="--f"/>
-            <arg value="../../docker-demo-flows/demo_dev_ops_flow.yaml"/>
+            <arg value="install-app.sl"/>
         </exec>
 
-        <exec dir="${build}/slang/appassembler/bin" executable="cmd" osfamily="windows">
+        <exec executable="cmd" osfamily="windows">
             <arg value="/c"/>
-            <arg value="slang"/>
+            <arg value="${build}/slang/appassembler/bin/slang"/>
             <arg value="run"/>
             <arg value="--f"/>
-            <arg value="../../docker-demo-flows/demo_dev_ops_flow.yaml"/>
+            <arg value="install-app.sl"/>
         </exec>
 
     </target>
 
-    
     <target name="clean"
         description="clean up" >
         <delete dir="${build}"/>
