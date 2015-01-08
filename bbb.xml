@@ -1,0 +1,41 @@
+<project name="score-runner" default="init" basedir=".">
+    <description>
+        run score cli
+    </description>
+    <!-- set global properties for this build -->
+    <property name="build" location="build"/>
+
+    <target name="init">
+        <!-- Create the time stamp -->
+        <tstamp/>
+        <!-- Create the build directory structure used by compile -->
+        <mkdir dir="${build}"/>
+
+        <get src="https://github.com/openscore/score-language/releases/download/slang-CLI-0.2/slang.zip"
+            dest="${build}/slang.zip" usetimestamp="true"/>
+
+        <unzip src="${build}/slang.zip" dest="${build}"/>
+
+        <exec dir="${build}/slang/appassembler/bin" executable="/bin/bash" osfamily="unix">
+            <arg value="slang"/>
+            <arg value="run"/>
+            <arg value="--f"/>
+            <arg value="../../docker-demo-flows/demo_dev_ops_flow.yaml"/>
+        </exec>
+
+        <exec dir="${build}/slang/appassembler/bin" executable="cmd" osfamily="windows">
+            <arg value="/c"/>
+            <arg value="slang"/>
+            <arg value="run"/>
+            <arg value="--f"/>
+            <arg value="../../docker-demo-flows/demo_dev_ops_flow.yaml"/>
+        </exec>
+
+    </target>
+
+    
+    <target name="clean"
+        description="clean up" >
+        <delete dir="${build}"/>
+    </target>
+</project>
