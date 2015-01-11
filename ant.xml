@@ -17,7 +17,7 @@
         <mkdir dir="${build}"/>
 
         <get src="https://github.com/openscore/score-language/releases/download/slang-CLI-0.2/slang.zip"
-            dest="${build}/slang.zip" usetimestamp="true"/>
+            dest="${build}/slang.zip" usetimestamp="true" verbose="true"/>
 
         <unzip src="${build}/slang.zip" dest="${build}"/>
 

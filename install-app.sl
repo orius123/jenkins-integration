@@ -10,3 +10,7 @@ flow:
       do:
         ops.print:
           - text: "'foo'"
+    Task2:
+      do:
+        ops.print:
+          - text: "'fooYoo'"
