@@ -24,7 +24,6 @@
         <exec executable="/bin/bash" osfamily="unix">
             <arg value="${build}/slang/appassembler/bin/slang"/>
             <arg value="run"/>
-            <arg value="--f"/>
             <arg value="install-app.sl"/>
         </exec>
 
@@ -32,7 +31,6 @@
             <arg value="/c"/>
             <arg value="${build}/slang/appassembler/bin/slang"/>
             <arg value="run"/>
-            <arg value="--f"/>
             <arg value="install-app.sl"/>
         </exec>
 
