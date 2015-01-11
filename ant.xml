@@ -4,11 +4,15 @@
     </description>
     <!-- set global properties for this build -->
     <property name="build" location="build"/>
+    <property name="proxy-host"/>
+    <property name="proxy-port"/>
 
     <target name="init">
         <!-- Create the time stamp -->
         <tstamp/>
         <!-- Create the build directory structure used by compile -->
+        
+        <setproxy proxyhost="${proxy-host}" proxyport="${proxy-port}"/>
         <mkdir dir="${build}"/>
 
         <get src="https://github.com/openscore/score-language/releases/download/slang-CLI-0.2/slang.zip"
